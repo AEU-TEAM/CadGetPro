@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>product-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">product-detail</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+// src/app/page/product-detail/product-detail.page.html
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Product Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2 class="product-title">{{ product.name }}</h2>
+
+  <p class="sold">
+    🔥 Total Sold: <strong>{{ product.totalSold }}</strong>
+  </p>
+
+  <!-- Variant Selection -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Select Variant</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-segment [(ngModel)]="selectedVariant" color="primary">
+        <ion-segment-button
+          *ngFor="let v of product.variants"
+          [value]="v">
+          <ion-label>{{ v }}</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Reviews -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Product Reviews</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngFor="let r of reviews">
+        <ion-label>
+          <h3>{{ r.user }}</h3>
+          <p>{{ r.comment }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Related Products -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Related Products</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" *ngFor="let p of relatedProducts">
+            <ion-card class="related-card">
+              <ion-card-content>
+                <h4>{{ p.name }}</h4>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary">
+    Add to Cart ({{ selectedVariant }})
+  </ion-button>
+</ion-content>

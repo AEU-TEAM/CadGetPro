@@ -1,0 +1,243 @@
+/* Header & Brand Styling */
+.app-toolbar {
+  --background: transparent;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+
+  .app-title {
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    text-align: center;
+    .brand-strong {
+      color: var(--ion-color-dark);
+      b { color: var(--ion-color-primary); }
+    }
+  }
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--ion-color-primary-tint);
+  padding: 2px;
+  background: #fff;
+}
+
+.notification-btn {
+  position: relative;
+  ion-icon { font-size: 26px; color: var(--ion-color-dark); }
+  .notification-badge {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+}
+
+/* Search Section */
+.search-section {
+  padding: 0 16px 15px;
+  .custom-search {
+    --border-radius: 16px;
+    --background: #f3f4f6;
+    --box-shadow: none;
+    padding: 0;
+  }
+}
+
+/* Promo Slider - Modern Gradient Look */
+.promo-slider {
+  padding: 10px 16px;
+  .slide-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 25px;
+    border-radius: 24px;
+    color: white;
+    text-align: left;
+    overflow: hidden;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2);
+
+    .slide-content {
+      flex: 1;
+      .badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: 1.6rem;
+        margin: 12px 0;
+        line-height: 1.2;
+      }
+      .cta-btn {
+        background: #fff;
+        color: #4f46e5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: transform 0.2s;
+        &:active { transform: scale(0.95); }
+      }
+    }
+    .slide-image img {
+      width: 120px;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    }
+  }
+}
+
+/* Horizontal Categories */
+.section-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px 10px;
+  h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: #1f2937; }
+  .see-all { font-size: 0.9rem; color: var(--ion-color-primary); font-weight: 600; }
+}
+
+.category-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 16px;
+  gap: 12px;
+  &::-webkit-scrollbar { display: none; }
+
+  .category-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #f3f4f6;
+    border-radius: 16px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+
+    ion-icon { font-size: 18px; color: #6b7280; }
+    span { font-weight: 500; color: #4b5563; }
+
+    &.active {
+      background: var(--ion-color-primary);
+      span, ion-icon { color: #fff; }
+      box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
+    }
+  }
+}
+
+/* Product Cards */
+.pro-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 12px;
+  position: relative;
+  box-shadow: var(--card-shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .wishlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 50%;
+    padding: 6px;
+  }
+
+  .img-wrapper {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 12px;
+    img { width: 100%; height: 120px; object-fit: contain; }
+  }
+
+  .info-wrapper {
+    .product-name {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #374151;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .current-price { font-size: 1.1rem; font-weight: 800; color: #111827; }
+      ion-icon { font-size: 28px; }
+    }
+  }
+}
+
+/* Responsive Grid Adjustments */
+@media (min-width: 768px) {
+  .product-grid ion-col {
+    flex: 0 0 25%; // Show 4 items per row on tablets/desktop
+    max-width: 25%;
+  }
+  .promo-slider .slide-card {
+    padding: 40px;
+    .slide-image img { width: 200px; }
+  }
+}
+
+/* Best Selling Section */
+.best-selling-container {
+  padding: 10px 16px 30px;
+  display: grid;
+  gap: 15px;
+
+  .best-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+
+    .best-img-box {
+      width: 80px;
+      height: 80px;
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 8px;
+      img { width: 100%; height: 100%; object-fit: contain; }
+    }
+
+    .best-info {
+      padding-left: 15px;
+      flex: 1;
+      h4 { margin: 0 0 5px; font-weight: 600; font-size: 1rem; }
+      .best-footer {
+        display: flex;
+        justify-content: space-between;
+        .price { font-weight: 700; color: var(--ion-color-primary); }
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

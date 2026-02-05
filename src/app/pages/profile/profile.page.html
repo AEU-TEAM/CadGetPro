@@ -1,0 +1,86 @@
+<ion-header class="modern-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" class="modern-back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="modern-title">Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="profile-header">
+    <div class="avatar-container">
+      <div class="avatar-inner">
+        <img [src]="user.avatar" />
+        <div class="edit-badge">
+          <ion-icon name="camera-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <h2>{{user.name}}</h2>
+    <p>{{user.email}}</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item">
+      <span class="val">{{user.orders}}</span>
+      <span class="lbl">Orders</span>
+    </div>
+    <div class="stat-item border">
+      <span class="val">4</span>
+      <span class="lbl">Vouchers</span>
+    </div>
+    <div class="stat-item">
+      <span class="val">1.2k</span>
+      <span class="lbl">Points</span>
+    </div>
+  </div>
+
+  <div class="settings-container">
+    <ion-list lines="none">
+      <div class="group-label">Account Settings</div>
+
+      <ion-item button detail="false">
+        <div class="icon-box purple" slot="start">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>
+        <ion-label>Edit Profile</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item button detail="false">
+        <div class="icon-box blue" slot="start">
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <ion-label>Shipping Address</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <ion-item button detail="false">
+        <div class="icon-box orange" slot="start">
+          <ion-icon name="card-outline"></ion-icon>
+        </div>
+        <ion-label>Payment Methods</ion-label>
+        <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+
+      <div class="group-label">Preferences</div>
+
+      <ion-item button detail="false">
+        <div class="icon-box green" slot="start">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </div>
+        <ion-label>Notifications</ion-label>
+        <ion-badge color="danger" slot="end">2</ion-badge>
+      </ion-item>
+
+      <ion-item button detail="false" (click)="onLogout()" class="logout-item">
+        <div class="icon-box red" slot="start">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </div>
+        <ion-label color="danger">Logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-card class="shop-card">
+
+  <ion-button fill="clear" size="small" class="fav-btn">
+    <ion-icon name="heart-outline"></ion-icon>
+  </ion-button>
+
+  <div class="img-box">
+    <img
+      [src]="product.thumbnail"
+      [alt]="product.title"
+      loading="lazy"
+    />
+  </div>
+
+  <ion-card-content>
+
+    <div class="rating-row">
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star-half"></ion-icon>
+      <span>3.5</span>
+    </div>
+
+    <h4 class="title">{{ product.title }}</h4>
+
+    <div class="price-row">
+      <span class="price">
+        {{ product.variants[0].prices[0].currency.symbol }}
+        {{ product.variants[0].prices[0].amount | number:'1.2-2' }}
+      </span>
+
+      <ion-button
+        size="small"
+        class="add-to-cart"
+        [disabled]="!product.purchasable"
+      >
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+  </ion-card-content>
+</ion-card>

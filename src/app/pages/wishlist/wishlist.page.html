@@ -1,0 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="white">
+    <ion-title>My <b>Wishlist</b></ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="empty-wishlist" *ngIf="wishlistItems.length === 0">
+    <div class="icon-bg">
+      <ion-icon name="heart"></ion-icon>
+    </div>
+    <h2>Your wishlist is empty</h2>
+    <p>Save items you love here to find them easily later.</p>
+    <ion-button fill="clear" color="primary">Explore Shop</ion-button>
+  </div>
+
+  <ion-grid *ngIf="wishlistItems.length > 0">
+    <ion-row>
+      <ion-col size="12" *ngFor="let item of wishlistItems">
+        <div class="wishlist-card" [class.out-of-stock]="!item.stock">
+          <div class="product-img">
+            <img [src]="item.img" />
+          </div>
+
+          <div class="product-info">
+            <div class="title-row">
+              <ion-text><h4>{{item.name}}</h4></ion-text>
+              <ion-button fill="clear" color="medium" (click)="removeItem(item.id)">
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
+
+            <p class="price">${{item.price}}</p>
+            <div class="action-row">
+              <span class="stock-status" *ngIf="item.stock">In Stock</span>
+              <span class="stock-status out" *ngIf="!item.stock">Out of Stock</span>
+              <ion-button size="small" [disabled]="!item.stock">
+                <ion-icon name="cart-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

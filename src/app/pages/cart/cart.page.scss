@@ -1,0 +1,98 @@
+.cart-item {
+  display: flex;
+  width: 100%;
+  padding: 10px 0;
+
+  .img-box {
+    width: 90px;
+    height: 90px;
+    background: #f4f7f9;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img { max-height: 70%; object-fit: contain; }
+  }
+
+  .info-box {
+    flex: 1;
+    padding-left: 15px;
+
+    h4 { margin: 0; font-size: 1rem; font-weight: 600; }
+    .unit-price { color: #888; font-size: 0.85rem; margin: 4px 0 10px; }
+
+    .counter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .qty-control {
+        display: flex;
+        align-items: center;
+        background: #f4f7f9;
+        border-radius: 10px;
+        padding: 4px;
+
+        button {
+          background: white;
+          border: none;
+          width: 28px;
+          height: 28px;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        span { padding: 0 12px; font-weight: 700; font-size: 0.9rem; }
+      }
+
+      .total-item-price { font-weight: 700; font-size: 1rem; margin: 0; }
+    }
+  }
+}
+
+.summary-card {
+  background: white;
+  padding: 25px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #666;
+
+    &.total {
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+    .free { color: #2ecc71; font-weight: 700; }
+  }
+
+  hr { border: 0; border-top: 1px solid #eee; margin: 15px 0; }
+
+  .checkout-btn {
+    --background: #4aa3ff;
+    margin-top: 15px;
+    height: 56px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
+
+.ion-no-border{
+  ion-toolbar{
+    ion-title {
+      b{
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: #4aa3ff;
+      }
+    }
+  }
+}

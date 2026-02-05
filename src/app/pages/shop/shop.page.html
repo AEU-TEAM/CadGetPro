@@ -1,0 +1,100 @@
+<!-- Modern Professional E‑commerce UI (Ionic + Angular) -->
+
+<ion-header class="ion-no-border">
+  <!-- Top App Bar -->
+  <ion-toolbar class="app-toolbar">
+    <ion-title class="app-title">
+      Gadget<span>Shop</span>
+    </ion-title>
+  </ion-toolbar>
+
+  <!-- Search -->
+  <ion-toolbar class="search-toolbar">
+    <ion-searchbar
+      placeholder="Search products"
+      debounce="300"
+      animated
+      mode="ios"
+      (ionInput)="onSearch($event)">
+    </ion-searchbar>
+  </ion-toolbar>
+
+  <!-- Categories -->
+  <ion-toolbar class="category-toolbar">
+    <div class="category-scroll">
+      <button
+        *ngFor="let category of categories"
+        class="category-pill"
+        [class.active]="selectedTab === category"
+        (click)="selectedTab = category; tabChanged(category)">
+        {{ category }}
+      </button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="shop-content">
+
+  <!-- Result & Filter Bar -->
+  <div class="result-bar">
+    <span class="count">{{ filteredProducts.length }} items</span>
+    <button class="filter-btn">
+      <ion-icon name="options-outline"></ion-icon>
+      Filter
+    </button>
+  </div>
+
+  <!-- Product Grid -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let p of filteredProducts">
+
+        <div class="product-card">
+
+          <!-- Image -->
+          <div class="image-wrap">
+            <img [src]="p.thumbnail" />
+
+            <div class="image-actions">
+              <button (click)="addToWishlist(p)">
+                <ion-icon name="heart-outline"></ion-icon>
+              </button>
+              <button (click)="viewDetail(p)">
+                <ion-icon name="eye-outline"></ion-icon>
+              </button>
+            </div>
+
+            <span class="badge">{{ 100 }} sold</span>
+          </div>
+
+          <!-- Info -->
+          <div class="info">
+            <h3>{{ p.title }}</h3>
+
+            <div class="meta">
+              <span class="rating">
+                <ion-icon name="star"></ion-icon> 4.9
+              </span>
+              <span class="sold">Hot</span>
+            </div>
+
+            <div class="price">${{ p.variants[0].prices[0].amount }}</div>
+
+            <button class="cta" (click)="buyNow(p)">Buy Now</button>
+
+            <div class="actions">
+              <button (click)="addToCart(p)">
+                <ion-icon name="cart-outline"></ion-icon>
+              </button>
+              <button (click)="quickOrder(p)">
+                <ion-icon name="flash-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
